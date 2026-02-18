@@ -16,3 +16,62 @@
 .react-calendar__navigation__label{
     font-weight: bold !important;
 }
+
+.rbc-btn-group:first-child{
+    /*display: none !important;*/
+}
+
+.rbc-toolbar-label{
+    text-align: right !important;
+    padding: 0px 20px !important;
+}
+
+.rbc-btn-group:last-child{
+    font-size: 13px;
+}
+.rbc-btn-group:last-child button{
+    border: none !important;
+    background-color: #fef08a !important;
+    margin-left: 2px;
+    border-radius: 7px !important;
+}
+
+.rbc-toolbar button.rbc-active{
+    background-color: #bfdbfe !important;
+    box-shadow: none !important;
+}
+
+.rbc-time-header{
+    display: none !important;
+}
+
+.rbc-time-content{
+    border-top: 2px solid #fef08a !important;
+    border-radius: 3px !important;
+
+}
+.rbc-time-view{
+    border-radius: 3px !important;
+}
+.rbc-time-gutter.rbc-time-column{
+    font-size: 12px !important;
+}
+
+.rbc-timeslot-group{
+    padding: 0px 20px !important;
+}
+
+.rbc-event{
+    background-color: #bfdbfe !important;
+}
+.rbc-event-label{
+    color: black !important;
+}
+
+.rbc-event-content{
+    color: black !important;
+}
+
+.rbc-events-container{
+    margin-top: 1px !important;
+}
