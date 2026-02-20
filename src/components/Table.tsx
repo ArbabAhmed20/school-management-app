@@ -14,7 +14,7 @@ function Table({columns, renderRow, data}: {columns:{header:string, accessor:str
                 </tr>
             </thead>
             <tbody>
-            {data.map((item) => (renderRow(item)))};
+            {data.map((item) => (renderRow(item)))}
             </tbody>
         </table>
     )

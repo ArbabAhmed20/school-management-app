@@ -4,49 +4,23 @@ import Image from "next/image";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import Link from "next/link";
-import {role, teachersData} from "@/lib/data";
+import {role, subjectsData,} from "@/lib/data";
 
-type Teacher = {
+type Subjects = {
     id: number;
-    teacherId: number;
     name: string;
-    email?: string;
-    photo: string;
-    phone: string;
-    subjects: string[];
-    classes: string[];
-    addresses: string[];
+    teachers: string[];
 }
 
 const columns = [
     {
-        header: "Info",
-        accessor: "info",
+        header: "Subject Name",
+        accessor: "name",
     },
     {
-        header: "Teacher ID",
-        accessor: "teacherId",
+        header: "Teachers",
+        accessor: "teachers",
         className: "hidden md:table-cell",
-    },
-    {
-        header: "Subjects",
-        accessor: "subjects",
-        className: "hidden md:table-cell",
-    },
-    {
-        header: "Classes",
-        accessor: "classes",
-        className: "hidden md:table-cell",
-    },
-    {
-        header: "Phone",
-        accessor: "phone",
-        className: "hidden lg:table-cell",
-    },
-    {
-        header: "Address",
-        accessor: "address",
-        className: "hidden lg:table-cell",
     },
     {
         header: "Actions",
@@ -54,27 +28,22 @@ const columns = [
     },
 ]
 
-function TeacherListPage() {
+function SubjectsListPage() {
 
-    const renderRow = (item: Teacher) =>{
+    const renderRow = (item: Subjects) =>{
         return (
             <tr key={item.id} className={"border-b border-gray-200 even:bg-gray-50 hover:bg-yellow-200 text-sm"}>
                 <td className={"flex items-center gap-4 p-4"}>
-                    <Image src={item.photo} alt={"photo"} height={40} width={40} className={"md:hidden xl:block w-10 h-10 rounded-full object-cover"}/>
                     <div className={"flex flex-col"}>
                         <h3 className={"font-semibold"}>{item.name}</h3>
-                        <p className={"text-xs"}>{item?.email}</p>
+                        {/*<p className={"text-xs"}>{item.teachers.join(",")}</p>*/}
                     </div>
                 </td>
-                <td className="hidden md:table-cell">{item.teacherId}</td>
-                <td className="hidden md:table-cell">{item.subjects.join(",")}</td>
-                <td className="hidden md:table-cell">{item.classes.join(",")}</td>
-                <td className="hidden md:table-cell">{item.phone}</td>
-                <td className="hidden md:table-cell">{item.addresses}</td>
+                <td className="hidden md:table-cell">{item.teachers.join(",")}</td>
                 <td>
                     <div className={"flex items-center gap-2"}>
                         <Link href={`/list/teachers/${item.id}`}>
-                            <button className={"w-12 h-10 flex items-center justify-center rounded-md bg-blue-200 text-black text-xs font-semibold"}>
+                            <button className={"w-12 h-10 flex items-center justify-center rounded-md bg-blue-200 text-black text-xs font-semibold "}>
                                 View
                             </button>
                         </Link>
@@ -91,7 +60,7 @@ function TeacherListPage() {
            <div className={"flex items-center justify-between"}>
             <div>
             {/*TOP*/}
-                <h1 className={"hidden md:block text-lg font-semibold"}>All Teachers</h1>
+                <h1 className={"hidden md:block text-lg font-semibold"}>All Subjects</h1>
             </div>
             <div className={"flex flex-col md:flex-row items-center gap-4 w-full md:w-auto"}>
             {/*list*/}
@@ -109,10 +78,10 @@ function TeacherListPage() {
                 </div>
             </div>
             </div>
-            <Table columns={columns} renderRow={renderRow} data={teachersData}/>
+            <Table columns={columns} renderRow={renderRow} data={subjectsData}/>
             <Pagination />
         </div>
     )
 }
 
-export default TeacherListPage
+export default SubjectsListPage

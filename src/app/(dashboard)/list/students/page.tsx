@@ -4,17 +4,17 @@ import Image from "next/image";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import Link from "next/link";
-import {role, teachersData} from "@/lib/data";
+import {role, studentsData,} from "@/lib/data";
 
-type Teacher = {
+type Student = {
     id: number;
-    teacherId: number;
+    studentId: number;
     name: string;
     email?: string;
     photo: string;
-    phone: string;
-    subjects: string[];
-    classes: string[];
+    phone?: string;
+    grade: number;
+    class: string;
     addresses: string[];
 }
 
@@ -24,18 +24,13 @@ const columns = [
         accessor: "info",
     },
     {
-        header: "Teacher ID",
-        accessor: "teacherId",
+        header: "Student ID",
+        accessor: "studentId",
         className: "hidden md:table-cell",
     },
     {
-        header: "Subjects",
-        accessor: "subjects",
-        className: "hidden md:table-cell",
-    },
-    {
-        header: "Classes",
-        accessor: "classes",
+        header: "Grade",
+        accessor: "grade",
         className: "hidden md:table-cell",
     },
     {
@@ -54,9 +49,9 @@ const columns = [
     },
 ]
 
-function TeacherListPage() {
+function StudentListPage() {
 
-    const renderRow = (item: Teacher) =>{
+    const renderRow = (item: Student) =>{
         return (
             <tr key={item.id} className={"border-b border-gray-200 even:bg-gray-50 hover:bg-yellow-200 text-sm"}>
                 <td className={"flex items-center gap-4 p-4"}>
@@ -66,16 +61,15 @@ function TeacherListPage() {
                         <p className={"text-xs"}>{item?.email}</p>
                     </div>
                 </td>
-                <td className="hidden md:table-cell">{item.teacherId}</td>
-                <td className="hidden md:table-cell">{item.subjects.join(",")}</td>
-                <td className="hidden md:table-cell">{item.classes.join(",")}</td>
-                <td className="hidden md:table-cell">{item.phone}</td>
+                <td className="hidden md:table-cell">{item.studentId}</td>
+                <td className="hidden md:table-cell">{item.grade}</td>
+                <td className="hidden md:table-cell">{item.class}</td>
                 <td className="hidden md:table-cell">{item.addresses}</td>
                 <td>
                     <div className={"flex items-center gap-2"}>
                         <Link href={`/list/teachers/${item.id}`}>
-                            <button className={"w-12 h-10 flex items-center justify-center rounded-md bg-blue-200 text-black text-xs font-semibold"}>
-                                View
+                            <button className={"w-12 h-10 flex items-center justify-center rounded-md bg-blue-200 text-black text-xs font-semibold "}>
+                                Edit
                             </button>
                         </Link>
                         {role === "admin" &&  <button className={"w-14 h-10 flex items-center justify-center rounded-md bg-red-700 text-white text-xs font-semibold"}>
@@ -91,7 +85,7 @@ function TeacherListPage() {
            <div className={"flex items-center justify-between"}>
             <div>
             {/*TOP*/}
-                <h1 className={"hidden md:block text-lg font-semibold"}>All Teachers</h1>
+                <h1 className={"hidden md:block text-lg font-semibold"}>All Students</h1>
             </div>
             <div className={"flex flex-col md:flex-row items-center gap-4 w-full md:w-auto"}>
             {/*list*/}
@@ -109,10 +103,10 @@ function TeacherListPage() {
                 </div>
             </div>
             </div>
-            <Table columns={columns} renderRow={renderRow} data={teachersData}/>
+            <Table columns={columns} renderRow={renderRow} data={studentsData}/>
             <Pagination />
         </div>
     )
 }
 
-export default TeacherListPage
+export default StudentListPage

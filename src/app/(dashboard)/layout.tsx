@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,10 +12,10 @@ export default function DashboardLayout({
 }>) {
     return (
         <div className="h-screen flex">
-            <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%] ml-3 ">
+            <div className="w-[14%] md:w-[8%] lg:w-[16%] xl:w-[14%] ml-3 flex flex-col items-center justify-center ">
                 <Link href={'/'} className={"flex items-center justify-center gap-2 lg:justify-start pt-1"}>
                     <Image width={32} height={32} src={"/logo.png"} alt={"School"}/>
-                    <span className={"hidden lg:block font-bold"}>School</span>
+                    <span className={"hidden lg:block font-bold"}>SchoolName</span>
                 </Link>
                 <Menu/>
             </div>
@@ -24,11 +23,6 @@ export default function DashboardLayout({
                 <Navbar/>
                 {children}
             </div>
-
-
-
-            {/*Dashboard*/}
-            {/*{children}*/}
         </div>
     );
 }
