@@ -18,7 +18,7 @@
 }
 
 .rbc-btn-group:first-child{
-    /*display: none !important;*/
+    display: none !important;
 }
 
 .rbc-toolbar-label{
