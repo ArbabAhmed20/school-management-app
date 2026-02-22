@@ -123,11 +123,11 @@ function Menu() {
         <div className={"mt-4 text-sm"}>
             {menuItems.map(i => (
                 <div key={i.title} className={"flex flex-col gap-2 "}>
-                    <span className={"hidden lg:block text-black font-light my-4"}>{i.title}</span>
+                    <span className={"hidden lg:block text-black font-light my-4"}><hr/></span>
                     {i.items.map(item => {
                         if (item.visible.includes(role)){
                             return(
-                                <Link className={"flex items-center justify-center lg:justify-start gap-4 text-black md:px-2 py-2 rounded-md hover:bg-blue-200"} key={item.label} href={item.href}>
+                                <Link className={"flex items-center justify-center lg:justify-start gap-2 text-black md:px-2 py-2 rounded-md hover:bg-gray-300"} key={item.label} href={item.href}>
                                     <Image src={item.icon} alt={""} width={20} height={20}/>
                                     <span className={"hidden lg:block"}>{item.label}</span>
                                 </Link>
