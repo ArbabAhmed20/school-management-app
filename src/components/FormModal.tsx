@@ -2,6 +2,21 @@
 
 import React from 'react'
 import Image from "next/image";
+import dynamic from "next/dynamic";
+// import TeacherForm from "@/components/forms/TeacherForm";
+// import StudentForm from "@/components/forms/StudentForm";
+
+const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+const StudentForm = dynamic(() => import("./forms/StudentForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+
+const forms: {[key:string]: (type: "create" | "update", data?: any) => JSX.Element} = {
+    teacher: (type,data) => <TeacherForm type={type} data={data}/>,
+    student: (type,data) => <StudentForm type={type} data={data}/>
+}
 
 function FormModal({
                        table,
@@ -41,7 +56,9 @@ function FormModal({
                 <span className={"text-center font-medium text-xl"}>Are Your Sure, Delete {table}?</span>
                 <button className={"bg-red-700 text-white p-4 rounded-md border-none w-max self-center"}>Delete</button>
             </form>
-            : "create or update form";
+            : type === "create" || type === "update" ? (
+                forms[table](type,data)
+            ) : "Form Error!"
     }
 
     return (

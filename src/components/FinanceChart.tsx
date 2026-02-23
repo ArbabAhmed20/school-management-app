@@ -89,8 +89,8 @@ function FinanceChart() {
                 <YAxis width="auto" tickLine={false} />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="income" stroke="#bfdbfe" strokeWidth={5} />
-                <Line type="monotone" dataKey="expense" stroke="#fef08a" strokeWidth={5} />
+                <Line type="monotone" dataKey="income" stroke="#374151" strokeWidth={5} />
+                <Line type="monotone" dataKey="expense" stroke="#6b7280" strokeWidth={5} />
             </LineChart>
         </div>
     )

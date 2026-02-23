@@ -4,6 +4,7 @@ import BigCalendar from "@/components/BigCalender";
 import Announcements from "@/components/Announcements";
 import Link from "next/link";
 import Performance from "@/components/Performance";
+import FormModal from "@/components/FormModal";
 
 function SingleTeacherPage() {
     return (
@@ -19,6 +20,7 @@ function SingleTeacherPage() {
                         </div>
                         <div className={"w-2/3 flex flex-col justify-between gap-4"}>
                             <h1 className={"text-xl font-semibold"}>Teacher Name</h1>
+                            <FormModal table={"teacher"} type={"update"} />
                             <p className={"text-sm"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, ducimus!</p>
                             <div className={"flex items-center justify-between gap-2 flex-wrap text-xs font-medium"}>
                                 <div className={"w-full md:w-1/3 flex items-center gap-2 lg:w-full 2xl:w-1/3"}>

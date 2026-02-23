@@ -13,12 +13,12 @@ const data = [
     {
         name: 'Girls',
         count: 50,
-        fill: '#fef08a',
+        fill: '#374151',
     },
     {
         name: 'Boys',
         count: 50,
-        fill: '#bfdbfe',
+        fill: '#6b7280',
     },
 ];
 
@@ -50,22 +50,15 @@ const CountChart = () => {
                         <RadialBar background dataKey="count" />
                     </RadialBarChart>
                 </ResponsiveContainer>
-                <Image
-                    src="/maleFemale.png"
-                    alt=""
-                    width={50}
-                    height={50}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
             </div>
             <div className={"flex justify-center gap-16"}>
                 <div className={"flex flex-col gap-1"}>
-                    <div className={"w-5 h-5 bg-blue-200 rounded-full"}/>
+                    <div className={"w-5 h-5 bg-gray-700 rounded-full"}/>
                     <h1 className={"font-bold"}>count</h1>
                     <h2 className={"text-sm text-gray-500"}>Boys%</h2>
                 </div>
                 <div className={"flex flex-col gap-1"}>
-                    <div className={"w-5 h-5 bg-yellow-200 rounded-full"}/>
+                    <div className={"w-5 h-5 bg-gray-500 rounded-full"}/>
                     <h1 className={"font-bold"}>count</h1>
                     <h2 className={"text-sm text-gray-500"}>Girls%</h2>
                 </div>

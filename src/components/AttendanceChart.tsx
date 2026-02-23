@@ -54,8 +54,8 @@ function AttendanceChart() {
                 <YAxis width="auto" tickLine={false} />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="present" fill="#bfdbfe" radius={[10, 10, 0, 0]} legendType={"circle"} />
-                <Bar dataKey="absent" fill="#fef08a"  radius={[10, 10, 0, 0]} legendType={"circle"} />
+                <Bar dataKey="present" fill="#374151" radius={[10, 10, 0, 0]} legendType={"circle"} />
+                <Bar dataKey="absent" fill="#6b7280"  radius={[10, 10, 0, 0]} legendType={"circle"} />
             </BarChart>
         </div>
     )
